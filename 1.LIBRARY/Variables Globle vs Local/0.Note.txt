@@ -1,0 +1,3 @@
+The global varibles is the varibles that stay outside and can be used anywher within the program
+**Use "gloabl (varibles)" to make the gloabl varibles**
+The local varibles is the varibles that only exist with the specific place in program
