@@ -13,20 +13,22 @@ canvas.pack()
 
 ball = canvas.create_oval(190, 190, 210, 210, fill="green")
 wall = canvas.create_rectangle(300, 50, 320,300 , fill="black", tags="wall")
+wall1 = canvas.create_rectangle(30, 70, 50,300 , fill="black", tags="wall")
 def changeball(event):
     oval_coords = canvas.coords(ball)
     wall_coords = canvas.coords(wall)
+    wall1_coords = canvas.coords(wall1)
     if event.keysym == "Right":
-        if (oval_coords[2]< wall_coords[0] or oval_coords[1]>=wall_coords[3] or oval_coords[3] <= wall_coords[1] or oval_coords[0]>=wall_coords[2] ):
+        if (oval_coords[2]< wall_coords[0] or oval_coords[1]>=wall_coords[3] or oval_coords[3] <= wall_coords[1] or oval_coords[0]>=wall_coords[2] ) and (oval_coords[2]< wall1_coords[0] or oval_coords[1]>=wall1_coords[3] or oval_coords[3] <= wall1_coords[1] or oval_coords[0]>=wall1_coords[2] ):
             canvas.move(ball, 10, 0)
     elif event.keysym == "Left":
-        if (oval_coords[0]> wall_coords[2] or oval_coords[1]>=wall_coords[3] or oval_coords[3] <= wall_coords[1] or oval_coords[0]<wall_coords[2] ):
+        if (oval_coords[0]> wall_coords[2] or oval_coords[1]>=wall_coords[3] or oval_coords[3] <= wall_coords[1] or oval_coords[0]<wall_coords[2] ) and (oval_coords[0]> wall1_coords[2] or oval_coords[1]>=wall1_coords[3] or oval_coords[3] <= wall1_coords[1] or oval_coords[0]<wall1_coords[2] ):
             canvas.move(ball, -10, 0)
     elif event.keysym == "Up":
-        if (oval_coords[2]<= wall_coords[0] or oval_coords[1]>wall_coords[3] or oval_coords[3] <= wall_coords[1] or oval_coords[0]>=wall_coords[2] ):
+        if (oval_coords[2]<= wall_coords[0] or oval_coords[1]>wall_coords[3] or oval_coords[3] <= wall_coords[1] or oval_coords[0]>=wall_coords[2] ) and (oval_coords[2]<= wall1_coords[0] or oval_coords[1]>wall1_coords[3] or oval_coords[3] <= wall1_coords[1] or oval_coords[0]>=wall1_coords[2] ):
             canvas.move(ball, 0, -10)
     elif event.keysym == "Down":
-        if (oval_coords[2]<= wall_coords[0] or oval_coords[1]>=wall_coords[3] or oval_coords[3] < wall_coords[1] or oval_coords[0]>=wall_coords[2] ):
+        if (oval_coords[2]<= wall_coords[0] or oval_coords[1]>=wall_coords[3] or oval_coords[3] < wall_coords[1] or oval_coords[0]>=wall_coords[2] ) and (oval_coords[2]<= wall1_coords[0] or oval_coords[1]>=wall1_coords[3] or oval_coords[3] < wall1_coords[1] or oval_coords[0]>=wall1_coords[2] ):
             canvas.move(ball, 0, 10)          
 
 window.bind("<Key>", changeball)
