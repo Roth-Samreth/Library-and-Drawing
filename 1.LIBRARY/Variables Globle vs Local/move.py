@@ -16,7 +16,6 @@ canvas.pack()
 
 id = canvas.create_oval(10, 10, 60, 60, fill='red')
 
-
 def moveRight():
     if canvas.coords(id)[2] < 590:
         canvas.move(id, +10, 0)
@@ -41,9 +40,5 @@ def move(event):
         moveDown()
 window.bind('<Key>', move)
 
-
-
-
-window.bind('<Right>')
 
 window.mainloop()
